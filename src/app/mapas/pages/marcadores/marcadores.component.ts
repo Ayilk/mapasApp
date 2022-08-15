@@ -69,8 +69,16 @@ export class MarcadoresComponent implements AfterViewInit {
     console.log(this.marcadores)
    }
 
-   irMarcador(){
-    
+   irMarcador(marker: mapboxgl.Marker){
+    this.mapa.flyTo({
+      center: marker.getLngLat()
+    })
    }
+
+   guardarMarcadoresLocalStorage(){
+
+   }
+
+   leerLocalStorage(){}
 
 }
