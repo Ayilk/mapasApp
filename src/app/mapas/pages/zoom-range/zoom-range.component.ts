@@ -44,13 +44,29 @@ export class ZoomRangeComponent implements AfterViewInit {
       center: [ -106.44490237257102, 23.239929574080456],
       zoom: this.zoomLevel
     });
+
+    //En el momento en el que ya cree el mapa y esta listo para ser usado
+    this.mapa.on('zoom', (evento) => {
+      // console.log('zoom');
+      // console.log(evento)
+
+      //const zoomActual = this.mapa.getZoom();
+     // console.log('zoomActual');
+      //console.log(zoomActual);
+
+      this.zoomLevel = this.mapa.getZoom();
+    })
   }
 
   zoomIn(){
     //console.log('zoom in')
     this.mapa.zoomIn();
 
-    this.zoomLevel = this.mapa.getZoom();
+    //Esta no es la manera mas optima de hacer zoom, pues
+    //al mover la ruedita del mouse, el número del zoom no se
+    //actualiza. Por lo tanto tenemos que meter un event Listener
+    //que este escuchado los cambios
+    //this.zoomLevel = this.mapa.getZoom();
 
 
   }
@@ -61,7 +77,7 @@ export class ZoomRangeComponent implements AfterViewInit {
 
     //console.log(this.mapa.getZoom())
 
-    this.zoomLevel = this.mapa.getZoom();
+    //this.zoomLevel = this.mapa.getZoom();
    
   }
   
