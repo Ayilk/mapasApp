@@ -45,7 +45,8 @@ export class MarcadoresComponent implements AfterViewInit {
       container: this.divMapa.nativeElement,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: this.center,
-      zoom: this.zoomLevel
+      zoom: this.zoomLevel,
+      interactive: false
     });
 
     this.leerLocalStorage();
